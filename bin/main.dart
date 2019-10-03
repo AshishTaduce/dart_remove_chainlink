@@ -24,10 +24,10 @@ main() {
   Link sixthLink = Link('Parvati');
   fifthLink.next = sixthLink;
 
-  print(firstLink);
+  printChain(firstLink);
   print('-------');
   removeLink(firstLink, 'Makiko');
-  print(firstLink);
+  printChain(firstLink);
 }
 
 // Printing the linkTree
@@ -42,5 +42,13 @@ void printChain(Link link) {
 // Exercise: Write a function which takes in a link and a word. It should remove the link with value matching word
 void removeLink(Link firstLink, String word) {
   // Implement function here
+  var j = firstLink;
 
+    while (j.next != null) {
+      if (j.next.value == word) {
+        j.next = j.next.next;
+        //j.value = j.next.next.value;
+      }
+      j = j.next;
+    }
 }
